@@ -1,0 +1,27 @@
+{
+  "name": "projeto01-mod03",
+  "version": "1.0.0",
+  "description": "Repositório dedicado ao projeto 01 do módulo 02 do curso da Blue EdTech",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mthiagoalves/Projeto01-Mod03.git"
+  },
+  "author": "Thiago Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mthiagoalves/Projeto01-Mod03/issues"
+  },
+  "homepage": "https://github.com/mthiagoalves/Projeto01-Mod03#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongoose": "^6.3.0",
+    "nodemon": "^2.0.15"
+  }
+}
