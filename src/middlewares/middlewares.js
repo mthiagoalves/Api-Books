@@ -20,7 +20,8 @@ const validObjectBook = (req, res, next) => {
     !book.description ||
     !book.author ||
     !book.genre ||
-    !book.year
+    !book.year ||
+    !book.continue
   ) {
     return res.status(400).send({ message: 'Send all info the book' });
   }
