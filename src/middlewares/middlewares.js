@@ -28,7 +28,19 @@ const validObjectBook = (req, res, next) => {
   next();
 };
 
+const validObjectBodyCart = (req, res, next) => {
+  const cart = req.body;
+
+  cart.forEach((item) => {
+    if (!item || !item.bookId || !item.qtd) {
+      return res.status(400).send({ message: 'Send all info the book' });
+    }
+  });
+  next();
+};
+
 module.exports = {
   validIdBook,
   validObjectBook,
+  validObjectBodyCart,
 };
