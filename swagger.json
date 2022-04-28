@@ -79,7 +79,7 @@
     "/create": {
       "post": {
         "summary": "Cadastrar um novo livro",
-        "description": "Rota responsável por cadastrar uma paleta",
+        "description": "Rota responsável por cadastrar um livro",
         "tags": ["Books"],
         "requestBody": {
           "content": {
@@ -88,7 +88,7 @@
                 "$ref": "#/components/schemas/Books"
               },
               "examples": {
-                "Paletas": {
+                "Books": {
                   "value": {
                     "title": "The left hand of god",
                     "description": "The Left Hand of God is the first book in the trilogy, written by Paul Hoffman.",
@@ -142,7 +142,7 @@
                 "$ref": "#/components/schemas/Books"
               },
               "examples": {
-                "Paletas": {
+                "Books": {
                   "value": {
                     "title": "The left hand of god Editado",
                     "description": "The Left Hand of God is the first book in the trilogy, written by Paul Hoffman.",
