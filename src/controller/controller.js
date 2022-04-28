@@ -44,8 +44,7 @@ const updateBookController = async (req, res) => {
     !bookEdit.description ||
     !bookEdit.author ||
     !bookEdit.genre ||
-    !bookEdit.year ||
-    !bookEdit.continue
+    !bookEdit.year
   ) {
     return res.status(400).send({ message: 'Send all info the book' });
   }

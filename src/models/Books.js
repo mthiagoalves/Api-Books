@@ -29,10 +29,6 @@ const BookSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  continue: {
-    type: String,
-    require: true,
-  },
 });
 
 const Book = mongoose.model('books', BookSchema);
