@@ -1,11 +1,16 @@
 const route = require('express').Router();
 const controllerBook = require('../controller/controller');
 const controllerCart = require('../controller/cart.controler');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../../swagger.json');
 const {
   validIdBook,
   validObjectBook,
   validObjectBodyCart,
 } = require('../middlewares/middlewares');
+
+route.use('/api-docs', swaggerUi.serve);
+route.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 route.get('/find-book', controllerBook.findAllBooksController);
 route.get('/book/:id', validIdBook, controllerBook.findByIDBooksController);

@@ -1,0 +1,323 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Shelves Books",
+    "description": "API para CRUD de livros e carrinho de compras",
+    "termsOfService": "",
+    "contact": {
+      "email": "m.thiago.alves@live.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/books",
+      "description": "API Shelves Books"
+    },
+    {
+      "url": "https://api-shelves-books.onrender.com/books",
+      "description": "API de produção"
+    }
+  ],
+  "paths": {
+    "/find-book": {
+      "get": {
+        "summary": "Lista de todas os livros e mangás",
+        "description": "Rota responsável por listar todos livros",
+        "tags": ["Books"],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Books"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/book/{id}": {
+      "get": {
+        "summary": "Busca um livro pelo ID",
+        "description": "Rota responsável por buscar um livro pelo ID",
+        "tags": ["Books"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do livro para a busca",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Books"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create": {
+      "post": {
+        "summary": "Cadastrar um novo livro",
+        "description": "Rota responsável por cadastrar uma paleta",
+        "tags": ["Books"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              },
+              "examples": {
+                "Paletas": {
+                  "value": {
+                    "title": "The left hand of god",
+                    "description": "The Left Hand of God is the first book in the trilogy, written by Paul Hoffman.",
+                    "img": "../assets/img/the-left-hand-of-god.jpg",
+                    "author": "Paul Hoffman",
+                    "genre": "Fiction, Romance",
+                    "price": 29.9,
+                    "year": 2010,
+                    "continue": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Books"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update/{id}": {
+      "put": {
+        "summary": "Editar um livro pelo ID",
+        "description": "Rota responsável por editar uma livro pelo ID",
+        "tags": ["Books"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do livro para a busca",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              },
+              "examples": {
+                "Paletas": {
+                  "value": {
+                    "title": "The left hand of god Editado",
+                    "description": "The Left Hand of God is the first book in the trilogy, written by Paul Hoffman.",
+                    "img": "../assets/img/the-left-hand-of-god.jpg",
+                    "author": "Paul Hoffman",
+                    "genre": "Fiction, Romance",
+                    "price": 29.9,
+                    "year": 2010,
+                    "continue": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Books"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/{id}": {
+      "delete": {
+        "summary": "Apagar um livro pelo ID",
+        "description": "Rota responsável por apagar um livro pelo ID",
+        "tags": ["Books"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do livro para deleção",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/all-cart": {
+      "get": {
+        "summary": "Lista de todos os itens do carrinho",
+        "description": "Rota responsável por listar todos os itens do carrinho",
+        "tags": ["Cart"],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cart"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create-cart": {
+      "post": {
+        "summary": "Cadastrar vários itens no carrinho",
+        "description": "Rota responsável por cadastrar vários itens no carrinho",
+        "tags": ["Cart"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cart"
+              },
+              "examples": {
+                "Carrinho": {
+                  "value": [
+                    {
+                      "bookId": "624230fdcd38269205c82197",
+                      "qtd": 5
+                    },
+                    {
+                      "bookId": "62423c1e618f4a4738a5ee75",
+                      "qtd": 2
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cart"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/finish-cart": {
+      "delete": {
+        "summary": "Apagar todos os itens do carrinho",
+        "description": "Rota responsável por apagar todos os itens do carrinho",
+        "tags": ["Cart"],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Books": {
+        "type": "object",
+        "properties": {
+          "sabor": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "foto": {
+            "type": "string"
+          },
+          "preco": {
+            "type": "number"
+          }
+        }
+      },
+      "Cart": {
+        "type": "object",
+        "properties": {
+          "bookId": {
+            "type": "string"
+          },
+          "qtd": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
