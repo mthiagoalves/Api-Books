@@ -38,10 +38,14 @@ const updateBookController = async (req, res) => {
 
   if (
     !bookEdit ||
-    !bookEdit.name ||
+    !bookEdit.title ||
     !bookEdit.price ||
     !bookEdit.img ||
-    !bookEdit.description
+    !bookEdit.description ||
+    !bookEdit.author ||
+    !bookEdit.genre ||
+    !bookEdit.year ||
+    !bookEdit.continue
   ) {
     return res.status(400).send({ message: 'Send all info the book' });
   }
@@ -54,7 +58,7 @@ const updateBookController = async (req, res) => {
 const deleteBookController = async (req, res) => {
   const idBook = req.params.id;
 
-  await booksService.findByIdAndDelete(idBook);
+  await booksService.deleteBookService(idBook);
 
   res.send({ message: 'Book Deleted' });
 };
