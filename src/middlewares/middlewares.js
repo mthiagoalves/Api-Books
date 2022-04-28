@@ -14,10 +14,14 @@ const validObjectBook = (req, res, next) => {
 
   if (
     !book ||
-    !book.name ||
+    !book.title ||
     !book.price ||
     !book.img ||
-    !book.description
+    !book.description ||
+    !book.author ||
+    !book.genre ||
+    !book.year ||
+    !book.continue
   ) {
     return res.status(400).send({ message: 'Send all info the book' });
   }

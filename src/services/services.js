@@ -11,24 +11,24 @@ const findByIDBooksService = async (idBook) => {
   return book;
 };
 
-const createBookControler = async (newBook) => {
+const createBookService = async (newBook) => {
   const newBookcreated = await Books.create(newBook);
   return newBookcreated;
 };
 
-const updateBookControler = async (idBook, bookEdit) => {
+const updateBookService = async (idBook, bookEdit) => {
   const bookUpdated = await Books.findByIdAndUpdate(idBook, bookEdit);
   return [bookUpdated, bookEdit];
 };
 
-const deleteBookControler = async (idBook) => {
+const deleteBookService = async (idBook) => {
   return await Books.findByIdAndDelete(idBook);
 };
 
 module.exports = {
   findBooksService,
   findByIDBooksService,
-  createBookControler,
-  updateBookControler,
-  deleteBookControler,
+  createBookService,
+  updateBookService,
+  deleteBookService,
 };

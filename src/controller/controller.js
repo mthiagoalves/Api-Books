@@ -2,7 +2,7 @@ const booksService = require('../services/services');
 const mongoose = require('mongoose');
 
 const findAllBooksController = async (req, res) => {
-  const books = await booksService.findBooksServices();
+  const books = await booksService.findBooksService();
 
   if (books.length == 0) {
     return res.status(404).send({ message: 'Not found more books' });
@@ -26,7 +26,7 @@ const findByIDBooksController = async (req, res) => {
 const createBooksController = async (req, res) => {
   const book = req.body;
 
-  const newBook = await guitarsService.createBooksController(book);
+  const newBook = await booksService.createBookService(book);
 
   res.status(201).send(newBook);
 };
@@ -43,13 +43,10 @@ const updateBookController = async (req, res) => {
     !bookEdit.img ||
     !bookEdit.description
   ) {
-    return res.status(400).send({message: 'Send all info the book' });
+    return res.status(400).send({ message: 'Send all info the book' });
   }
 
-  const updateBook = await booksService.updateBookController(
-    idBook,
-    bookEdit,
-  );
+  const updateBook = await booksService.updateBookService(idBook, bookEdit);
 
   res.send(updateBook);
 };
@@ -57,7 +54,7 @@ const updateBookController = async (req, res) => {
 const deleteBookController = async (req, res) => {
   const idBook = req.params.id;
 
-  await booksService.deleteBookController(idBook);
+  await booksService.findByIdAndDelete(idBook);
 
   res.send({ message: 'Book Deleted' });
 };
