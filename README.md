@@ -30,7 +30,7 @@ npm run dev
 
 * Engine - [NodeJs](https://nodejs.org/en/docs/)
 * FrameWork - [Express](https://expressjs.com/pt-br/guide/routing.html)
-* Db - [PostgreSQL](https://www.mongodb.com/docs/atlas/)
+* Db - [MongoDb Atlas](https://www.mongodb.com/docs/atlas/)
 
 ## ✒️ Autores
 
