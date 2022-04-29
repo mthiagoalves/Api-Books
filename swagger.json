@@ -293,16 +293,16 @@
       "Books": {
         "type": "object",
         "properties": {
-          "sabor": {
+          "title": {
             "type": "string"
           },
-          "descricao": {
+          "description": {
             "type": "string"
           },
-          "foto": {
+          "img": {
             "type": "string"
           },
-          "preco": {
+          "price": {
             "type": "number"
           }
         }
