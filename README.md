@@ -4,7 +4,7 @@ Sejam bem-vindos ao minha API do projeto desenvolvido em Front-End. <br>
 
 ## 👀 Vizualização
 
-Veja nossa deploy no [Render](https://api-shelves-books.onrender.com/books/api-docs/)
+Veja o deploy do back-end no [Render](https://api-shelves-books.onrender.com/books/api-docs/)
 
 ## 🚀 Começando
 
