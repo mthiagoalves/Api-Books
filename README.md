@@ -1,6 +1,6 @@
 # Shelves Books - Projeto 03, módulo 03 !
 
-Sejam bem-vindos ao minha API do projeto desenvolvido em Front-End. <br>
+Sejam bem-vindos ao minha API do meu primeiro projeto desenvolvido em React.Js. <br>
 
 ## 👀 Vizualização
 
