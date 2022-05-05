@@ -6,7 +6,7 @@ const CartSchema = new mongoose.Schema({
     require: true,
   },
   qtd: {
-    type: String,
+    type: Number,
     require: true,
   },
 });

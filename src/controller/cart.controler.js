@@ -6,6 +6,8 @@ const findAllCartController = async (req, res) => {
   if (!allCart) {
     return res.status(404).send({ message: 'Item not found' });
   }
+
+  res.send(allCart);
 };
 
 const createManyItemsCartController = async (req, res) => {
@@ -17,7 +19,7 @@ const createManyItemsCartController = async (req, res) => {
 
 const deleteAllItemsCartController = async (req, res) => {
   await cartServices.deleteAllItemsCartServices();
-  res.send({ message: 'Cart empty' });
+  res.send({ message: 'Complete' });
 };
 
 module.exports = {
