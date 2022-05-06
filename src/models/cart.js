@@ -5,7 +5,7 @@ const CartSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  qtd: {
+  qtdSelected: {
     type: Number,
     require: true,
   },

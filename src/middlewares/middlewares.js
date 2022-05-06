@@ -32,7 +32,7 @@ const validObjectBodyCart = (req, res, next) => {
   const cart = req.body;
 
   cart.forEach((item) => {
-    if (!item || !item.bookId || !item.qtd) {
+    if (!item || !item.bookId || !item.qtdSelected) {
       return res.status(400).send({ message: 'Send all info the book' });
     }
   });
